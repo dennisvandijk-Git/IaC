@@ -26,6 +26,39 @@ resource "cloudflare_dns_record" "dnsr-dev-dennisvandijk" {
   proxied = false
 }
 
+data "azurerm_key_vault_secret" "func-secret" {
+  # name = "AZURE-FUNCTIONAPP-NAME"
+  name = "test"
+  key_vault_id = "/subscriptions/fb6085da-feae-4a43-ae4f-2352d9707ee9/resourceGroups/dev-keyvault-rg/providers/Microsoft.KeyVault/vaults/dev-keyvault-dvd"
+}
+
+output "secret_value" {
+  value = data.azurerm_key_vault_secret.func-secret.value
+  sensitive = true
+}
+
+# data "azurerm_key_vault" "key-vault" {
+#    name = "dev-keyvault-dvd"
+#    resource_group_name = "dev-keyvault-rg"
+# }
+
+# output "key_vault_id" {
+#   value = data.azurerm_key_vault.key-vault.id
+# }
+
+# output "key_vault_location" {
+#   value = data.azurerm_key_vault.key-vault.location
+# }
+
+# data "azurerm_key_vault_secrets" "name" {
+#   key_vault_id = "/subscriptions/fb6085da-feae-4a43-ae4f-2352d9707ee9/resourceGroups/dev-keyvault-rg/providers/Microsoft.KeyVault/vaults/dev-keyvault-dvd"
+# }
+
+# output "key_vault_secrets" {
+#   value = data.azurerm_key_vault_secrets.name
+# }
+
+
 # # Local env file
 # resource "local_file" "outputs" {
 #   content = <<EOT
