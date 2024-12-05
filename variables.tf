@@ -10,7 +10,45 @@ variable "dev" {
   type = string
 }
 
+variable "e-mail" {
+  type = string
+}
+
 variable "function-name" {
+  type = string
+}
+
+variable "cosmosdb-account-name" {
+  type = string
+}
+
+variable "cosmosdb-table-name" {
+  type = string
+}
+
+variable "api-sa-name" {
+  type = string
+}
+
+variable "api-sp-name" {
+  type = string
+}
+
+variable "api-lfa-name" {
+  type = string
+}
+
+variable "static-sa-name" {
+  type = string
+}
+variable "static-cdn-profile-name" {
+  type = string
+}
+variable "static-custom-domain-name" {
+  type = string
+}
+
+variable "static-custom-domain-hostname" {
   type = string
 }
 

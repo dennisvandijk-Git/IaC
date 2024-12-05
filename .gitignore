@@ -59,3 +59,5 @@ generated-api-url.tf
 generated-api-urlv1.tf
 generated-keyvault.tf
 imports.tf
+data.tf
+outputs.tf

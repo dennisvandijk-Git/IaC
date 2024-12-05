@@ -4,7 +4,7 @@ resource "azurerm_storage_account" "sa-sw" {
   account_replication_type = "LRS"
   account_tier             = "Standard"
   location                 = azurerm_resource_group.rg-staticwebsite.location
-  name                     = "staticresumewebsite01"
+  name                     = var.static-sa-name
   resource_group_name      = azurerm_resource_group.rg-staticwebsite.name
 }
 
@@ -18,7 +18,7 @@ resource "azurerm_storage_account_static_website" "sa-static-website" {
 # CDN profile
 resource "azurerm_cdn_profile" "cdn-profile" {
   location            = "global"
-  name                = "staticresumewebsite-cdn-profile"
+  name                = var.static-cdn-profile-name
   resource_group_name = azurerm_resource_group.rg-staticwebsite.name
   sku                 = "Standard_Microsoft"
 }
@@ -39,9 +39,9 @@ resource "azurerm_cdn_endpoint" "cdn-endpoint" {
 
 # CDN custom domain
 resource "azurerm_cdn_endpoint_custom_domain" "cdn-customdomain" {
-  name            = "dvandijk"
+  name            = var.static-custom-domain-name
   cdn_endpoint_id = azurerm_cdn_endpoint.cdn-endpoint.id
-  host_name       = "dev.dvandijk.com"
+  host_name       = var.static-custom-domain-hostname
 
   cdn_managed_https {
     certificate_type = "Dedicated"

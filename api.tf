@@ -1,6 +1,6 @@
 # Storage account
 resource "azurerm_storage_account" "sa-api" {
-  name                     = "linuxfunctionappsav1"
+  name                     = var.api-sa-name
   resource_group_name      = azurerm_resource_group.rg-api.name
   location                 = azurerm_resource_group.rg-api.location
   account_tier             = "Standard"
@@ -9,7 +9,7 @@ resource "azurerm_storage_account" "sa-api" {
 
 # App Service plan
 resource "azurerm_service_plan" "sp" {
-  name                = "api-app-service-plan"
+  name                = var.api-sp-name
   resource_group_name = azurerm_resource_group.rg-api.name
   location            = azurerm_resource_group.rg-api.location
   os_type             = "Linux"
@@ -18,7 +18,7 @@ resource "azurerm_service_plan" "sp" {
 
 # Function App
 resource "azurerm_linux_function_app" "lfa" {
-  name                = "api-linux-function-app"
+  name                = var.api-lfa-name
   resource_group_name = azurerm_resource_group.rg-api.name
   location            = azurerm_resource_group.rg-api.location
 
@@ -54,7 +54,7 @@ resource "azurerm_monitor_action_group" "mag" {
   short_name          = "SmartDetect"
 
   email_receiver {
-    email_address           = "dennisvandijk91@live.nl"
+    email_address           = var.e-mail
     name                    = "Notify_-EmailAction-"
     use_common_alert_schema = true
   }
