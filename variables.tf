@@ -72,7 +72,3 @@ locals {
     azurerm_linux_function_app.lfa.name
   )
 }
-
-# locals {
-#   FUNTION_API_URL = format("https://${azurerm_linux_function_app.lfa.name}.azurewebsites.net/api/${var.function-name}")
-# }
