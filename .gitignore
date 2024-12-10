@@ -13,7 +13,7 @@ crash.*.log
 # password, private keys, and other secrets. These should not be part of version 
 # control as they are data points which are potentially sensitive and subject 
 # to change depending on the environment.
-*.tfvars
+var-secret.auto.tfvars
 *.tfvars.json
 
 # Ignore override files as they are usually used to override resources locally and so
@@ -61,3 +61,4 @@ generated-keyvault.tf
 imports.tf
 data.tf
 outputs.tf
+api-terraform/var.auto.tfvars
