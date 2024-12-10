@@ -54,7 +54,6 @@ staticwebsite-terraform/providers.tf
 staticwebsite-terraform/staticwebsite-generated.tf
 staticwebsite-terraform/staticwebsite-generatedv1.tf
 terraform.yml
-TF_destroy.yml
 generated-api-url.tf
 generated-api-urlv1.tf
 generated-keyvault.tf
@@ -62,3 +61,4 @@ imports.tf
 data.tf
 outputs.tf
 api-terraform/var.auto.tfvars
+TF_destroy_test.yml
