@@ -52,13 +52,13 @@ variable "static-custom-domain-hostname" {
   type = string
 }
 
-# variable "CLOUDFLARE_API_TOKEN" {
-#   type = string
-# }
+variable "CLOUDFLARE_API_TOKEN" {
+  type = string
+}
 
-# variable "CLOUDFLARE_ZONE_ID" {
-#   type = string
-# }
+variable "CLOUDFLARE_ZONE_ID" {
+  type = string
+}
 
 locals {
   COSMOSDB_CONNECTION_STRING = format("DefaultEndpointsProtocol=https;AccountName=%s;AccountKey=%s;TableEndpoint=https://${azurerm_cosmosdb_account.cdb.name}.table.cosmos.azure.com:443/",
