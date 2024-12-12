@@ -25,3 +25,8 @@ resource "cloudflare_dns_record" "dnsr-dev-dennisvandijk" {
   ttl     = 1 # auto
   proxied = false
 }
+
+resource "time_sleep" "wait_60_seconds" {
+  depends_on = [ cloudflare_dns_record.dnsr-dev-dennisvandijk ]
+  destroy_duration = "60s"
+}
