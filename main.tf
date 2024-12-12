@@ -27,6 +27,6 @@ resource "cloudflare_dns_record" "dnsr-dev-dennisvandijk" {
 }
 
 resource "time_sleep" "wait_60_seconds" {
-  depends_on       = [cloudflare_dns_record.dnsr-dev-dennisvandijk]
+  depends_on       = [azurerm_cdn_endpoint_custom_domain.cdn-customdomain]
   destroy_duration = "60s"
 }
