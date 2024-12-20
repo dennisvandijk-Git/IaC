@@ -54,7 +54,7 @@ resource "azurerm_monitor_action_group" "mag" {
   short_name          = "SmartDetect"
 
   email_receiver {
-    email_address           = var.e-mail
+    email_address           = var.MAIL
     name                    = "Notify_-EmailAction-"
     use_common_alert_schema = true
   }

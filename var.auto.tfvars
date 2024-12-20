@@ -2,7 +2,6 @@
 location         = "westeurope"
 subscription-dev = "fb6085da-feae-4a43-ae4f-2352d9707ee9"
 dev              = "dev-"
-e-mail           = "dennisvandijk91@live.nl"
 function-name    = "visitor_counter"
 
 # CosmosDB

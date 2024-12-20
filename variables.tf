@@ -60,6 +60,10 @@ variable "CLOUDFLARE_ZONE_ID" {
   type = string
 }
 
+variable "MAIL" {
+  type = string
+}
+
 locals {
   COSMOSDB_CONNECTION_STRING = format("DefaultEndpointsProtocol=https;AccountName=%s;AccountKey=%s;TableEndpoint=https://${azurerm_cosmosdb_account.cdb.name}.table.cosmos.azure.com:443/",
     azurerm_cosmosdb_account.cdb.name,
