@@ -10,7 +10,7 @@ variable "dev" {
   type = string
 }
 
-variable "e-mail" {
+variable "MAIL" {
   type = string
 }
 
@@ -57,10 +57,6 @@ variable "CLOUDFLARE_API_TOKEN" {
 }
 
 variable "CLOUDFLARE_ZONE_ID" {
-  type = string
-}
-
-variable "MAIL" {
   type = string
 }
 
