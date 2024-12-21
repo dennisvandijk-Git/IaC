@@ -26,7 +26,7 @@ resource "azurerm_cdn_profile" "cdn-profile" {
 # CDN endpoint
 resource "azurerm_cdn_endpoint" "cdn-endpoint" {
   location            = azurerm_cdn_profile.cdn-profile.location
-  name                = "${var.dev}dennisvandijk"
+  name                = var.static-cdn-endpoint-name
   optimization_type   = "GeneralWebDelivery"
   origin_host_header  = replace(replace(azurerm_storage_account.sa-sw.primary_web_endpoint, "https://", ""), "/", "")
   profile_name        = azurerm_cdn_profile.cdn-profile.name

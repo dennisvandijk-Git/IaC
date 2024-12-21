@@ -1,3 +1,4 @@
+# General
 variable "location" {
   type = string
 }
@@ -6,7 +7,11 @@ variable "subscription-dev" {
   type = string
 }
 
-variable "dev" {
+variable "environment" {
+  type = string
+}
+
+variable "region" {
   type = string
 }
 
@@ -18,6 +23,7 @@ variable "function-name" {
   type = string
 }
 
+# CosmosDB
 variable "cosmosdb-account-name" {
   type = string
 }
@@ -26,11 +32,12 @@ variable "cosmosdb-table-name" {
   type = string
 }
 
-variable "api-sa-name" {
+# API
+variable "api-st-name" {
   type = string
 }
 
-variable "api-sp-name" {
+variable "api-asp-name" {
   type = string
 }
 
@@ -38,12 +45,17 @@ variable "api-lfa-name" {
   type = string
 }
 
+# Website
 variable "static-sa-name" {
   type = string
 }
 variable "static-cdn-profile-name" {
   type = string
 }
+variable "static-cdn-endpoint-name" {
+  type = string
+}
+
 variable "static-custom-domain-name" {
   type = string
 }
@@ -52,6 +64,7 @@ variable "static-custom-domain-hostname" {
   type = string
 }
 
+# Cloudflare
 variable "CLOUDFLARE_API_TOKEN" {
   type = string
 }

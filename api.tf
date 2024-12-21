@@ -1,6 +1,6 @@
 # Storage account
-resource "azurerm_storage_account" "sa-api" {
-  name                     = var.api-sa-name
+resource "azurerm_storage_account" "st-api" {
+  name                     = var.api-st-name
   resource_group_name      = azurerm_resource_group.rg-api.name
   location                 = azurerm_resource_group.rg-api.location
   account_tier             = "Standard"
@@ -8,8 +8,8 @@ resource "azurerm_storage_account" "sa-api" {
 }
 
 # App Service plan
-resource "azurerm_service_plan" "sp" {
-  name                = var.api-sp-name
+resource "azurerm_service_plan" "asp" {
+  name                = var.api-asp-name
   resource_group_name = azurerm_resource_group.rg-api.name
   location            = azurerm_resource_group.rg-api.location
   os_type             = "Linux"
@@ -22,9 +22,9 @@ resource "azurerm_linux_function_app" "lfa" {
   resource_group_name = azurerm_resource_group.rg-api.name
   location            = azurerm_resource_group.rg-api.location
 
-  storage_account_name       = azurerm_storage_account.sa-api.name
-  storage_account_access_key = azurerm_storage_account.sa-api.primary_access_key
-  service_plan_id            = azurerm_service_plan.sp.id
+  storage_account_name       = azurerm_storage_account.st-api.name
+  storage_account_access_key = azurerm_storage_account.st-api.primary_access_key
+  service_plan_id            = azurerm_service_plan.asp.id
 
   site_config {
     cors {
@@ -42,7 +42,7 @@ resource "azurerm_linux_function_app" "lfa" {
 # Log Analytics workspace
 resource "azurerm_log_analytics_workspace" "law" {
   location            = azurerm_resource_group.rg-api.location
-  name                = azurerm_storage_account.sa-api.name
+  name                = azurerm_storage_account.st-api.name
   resource_group_name = azurerm_resource_group.rg-api.name
 }
 
@@ -62,7 +62,7 @@ resource "azurerm_monitor_action_group" "mag" {
 
 # Application Insights
 resource "azurerm_application_insights" "ai" {
-  name                = azurerm_storage_account.sa-api.name
+  name                = azurerm_storage_account.st-api.name
   location            = azurerm_resource_group.rg-api.location
   resource_group_name = azurerm_resource_group.rg-api.name
   application_type    = "web"
