@@ -3,7 +3,7 @@ resource "azurerm_storage_account" "sa-sw" {
   account_kind             = "StorageV2"
   account_replication_type = "LRS"
   account_tier             = "Standard"
-  location                 = azurerm_resource_group.rg-website
+  location                 = azurerm_resource_group.rg-website.location
   name                     = var.static-sa-name
   resource_group_name      = azurerm_resource_group.rg-website.name
 }
