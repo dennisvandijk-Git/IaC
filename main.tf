@@ -20,7 +20,7 @@ resource "azurerm_resource_group" "rg-cosmosdb" {
 resource "cloudflare_dns_record" "dnsr-dennisvandijk-dev" {
   zone_id = var.CLOUDFLARE_ZONE_ID
   name    = var.environment
-  content = "${var.environment}-dennisvandijk.azureedge.net"
+  content = "${var.static-cdn-endpoint-name}.azureedge.net"
   type    = "CNAME"
   ttl     = 1 # auto
   proxied = false
