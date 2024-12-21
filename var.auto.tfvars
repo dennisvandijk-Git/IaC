@@ -15,7 +15,7 @@ api-asp-name = "asp-api-dev-001"
 api-lfa-name = "func-pythonapi-dev-001"
 
 # Website
-static-sa-name                = "ststaticwebsiteblobdev001"
+static-sa-name                = "stwebsitedvandijkdev001"
 static-cdn-profile-name       = "cdnp-website-dev-001"
 static-cdn-endpoint-name      = "cdne-website-dev-001"
 static-custom-domain-name     = "dvandijk"
