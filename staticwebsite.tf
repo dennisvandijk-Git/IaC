@@ -3,9 +3,9 @@ resource "azurerm_storage_account" "sa-sw" {
   account_kind             = "StorageV2"
   account_replication_type = "LRS"
   account_tier             = "Standard"
-  location                 = azurerm_resource_group.rg-staticwebsite.location
+  location                 = azurerm_resource_group.rg-website
   name                     = var.static-sa-name
-  resource_group_name      = azurerm_resource_group.rg-staticwebsite.name
+  resource_group_name      = azurerm_resource_group.rg-website.name
 }
 
 # Static website
@@ -19,7 +19,7 @@ resource "azurerm_storage_account_static_website" "sa-static-website" {
 resource "azurerm_cdn_profile" "cdn-profile" {
   location            = "global"
   name                = var.static-cdn-profile-name
-  resource_group_name = azurerm_resource_group.rg-staticwebsite.name
+  resource_group_name = azurerm_resource_group.rg-website.name
   sku                 = "Standard_Microsoft"
 }
 
@@ -30,7 +30,7 @@ resource "azurerm_cdn_endpoint" "cdn-endpoint" {
   optimization_type   = "GeneralWebDelivery"
   origin_host_header  = replace(replace(azurerm_storage_account.sa-sw.primary_web_endpoint, "https://", ""), "/", "")
   profile_name        = azurerm_cdn_profile.cdn-profile.name
-  resource_group_name = azurerm_resource_group.rg-staticwebsite.name
+  resource_group_name = azurerm_resource_group.rg-website.name
   origin {
     host_name = replace(replace(azurerm_storage_account.sa-sw.primary_web_endpoint, "https://", ""), "/", "")
     name      = "dvandijk-resume"
