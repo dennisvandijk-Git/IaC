@@ -1,10 +1,10 @@
 # resource "azurerm_resource_group" "tfstate" {
-#   name     = "${var.dev}tfstate-rg"
+#   name     = "rg-tfstate-${var.environment}-${var.region}-001"
 #   location = var.location
 # }
 
 # resource "azurerm_storage_account" "tfstate" {
-#   name                            = "stdevweutfstate"
+#   name                            = "sttfstate${var.environment}${var.region}001"
 #   resource_group_name             = azurerm_resource_group.tfstate.name
 #   location                        = azurerm_resource_group.tfstate.location
 #   account_tier                    = "Standard"
@@ -17,7 +17,7 @@
 # }
 
 # resource "azurerm_storage_container" "tfstate" {
-#   name = "tfstate"
-#   storage_account_id = azurerm_storage_account.tfstate.id
+#   name                  = "tfstate"
+#   storage_account_id    = azurerm_storage_account.tfstate.id
 #   container_access_type = "private"
 # }
