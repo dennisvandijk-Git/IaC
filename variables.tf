@@ -3,7 +3,7 @@ variable "location" {
   type = string
 }
 
-variable "subscription-dev" {
+variable "SUBSCRIPTION_DEV" {
   type = string
 }
 

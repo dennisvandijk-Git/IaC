@@ -1,9 +1,8 @@
 # General
-location         = "westeurope"
-subscription-dev = "fb6085da-feae-4a43-ae4f-2352d9707ee9"
-environment      = "dev"
-region           = "westeu"
-function-name    = "visitor_counter"
+location      = "westeurope"
+environment   = "dev"
+region        = "westeu"
+function-name = "visitor_counter"
 
 # CosmosDB
 cosmosdb-account-name = "costab-api-dev"
